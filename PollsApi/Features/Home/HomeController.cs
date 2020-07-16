@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PollsApi.Features.Home
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
     {

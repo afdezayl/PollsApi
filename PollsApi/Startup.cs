@@ -26,7 +26,15 @@ namespace PollsApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+            });
             services.AddSwaggerGen();
+
+            services.AddSingleton<PollsApi.Features.Weather.Services.IWeatherService, PollsApi.Features.Weather.Services.WeatherService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
